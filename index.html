@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<form action="#" id="new-meme-form">
+    <table>
+        <tbody>
+            <tr>
+                <td align="right"><label for="imageUrl">Image URL</label></td>
+                <td><input type="text" name="imageUrl" id="imageUrl" size="40"></td>
+            </tr>
+            <tr>
+                <td align="right"><label for="memeHeader">MEME Header</label></td>
+                <td><input type="text" name="memeHeader" id="memeHeader" size="40"></td>
+            </tr>
+            <tr>
+                <td align="right"><label for="memeFooter">MEME Footer</label></td>
+                <td><input type="text" name="memeFooter" id="memeFooter" size="40"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="submit" value="Let's Do It!"></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+<div id="meme-showcase"></div>
+<script src="script.js"></script>
+    
+</body>
+</html>
