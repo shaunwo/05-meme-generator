@@ -75,4 +75,7 @@ form {
             position: absolute;
             left: 18%;
             }
-                
+
+input[type="submit"] {
+    cursor: pointer;
+    }
