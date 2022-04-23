@@ -2,31 +2,34 @@ const form = document.querySelector('#new-meme-form');
 const memeShowcase = document.querySelector('#meme-showcase');
 
 // create new DOM block on page
-function addDOMBlock(el,HTMLclass,innerText) {
-    document.createElement(el);
-    memeHeaderContainer.classList.add(HTMLclass);
-	memeHeaderContainer.innerText = innerText;
+function addDOMBlock(obj,el,HTMLclass,innerText) {
+    obj.document.createElement(el);
+    obj.classList.add(HTMLclass);
+	obj.innerText = innerText;
 }
 
 // addine new meme
 form.addEventListener('submit', function(event) {
     event.preventDefault();
+    const imageUrl = document.querySelector('input[name="imageUrl"]');
+    if (imageUrl.value === "") {
+        alert("The Image URL is required");
+        return false;
+    }
     const memeHeaderText = document.querySelector('input[name="memeHeader"]');
     const memeFooterText = document.querySelector('input[name="memeFooter"]');
-    const imageUrl = document.querySelector('input[name="imageUrl"]');
 
     const memeContainer = document.createElement('div');
-    //memeContainer.setAttribute('id',1);
     memeContainer.classList.add('meme');
 
     const memeImg = document.createElement('img');
     memeImg.src = imageUrl.value;
     memeImg.width = 300;
 
-    const memeHeaderContainer = addDOMBlock('h3','meme-header',memeHeaderText.value);
-    // document.createElement('h3');
-    // memeHeaderContainer.classList.add('meme-header');
-	// memeHeaderContainer.innerText = memeHeaderText.value;
+    //const memeHeaderContainer = addDOMBlock('memeHeaderContainer','h3','meme-header',memeHeaderText.value);
+    const memeHeaderContainer = document.createElement('h3');
+    memeHeaderContainer.classList.add('meme-header');
+	memeHeaderContainer.innerText = memeHeaderText.value;
     
     const memeFooterContainer = document.createElement('h3');
     memeFooterContainer.classList.add('meme-footer');
@@ -47,9 +50,7 @@ form.addEventListener('submit', function(event) {
     memeShowcase.appendChild(memeContainer);
 
     //  clear form values
-    memeHeaderText.value = '';
-    memeFooterText.value = '';
-    imageUrl.value = '';
+    form.reset();
 });
 
 memeShowcase.addEventListener('click', function(e2) {
