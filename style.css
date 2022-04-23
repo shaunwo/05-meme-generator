@@ -16,9 +16,19 @@ form {
         font-size: 50px;
         font-weight: bold;
         }
-    form table td {
+    form div.row {
         padding: 10px;
+        clear: both;
         }
+    form div.row div.left {
+        float: left;
+        padding-right: 15px;
+        text-align: right;
+        width: 280px;
+        }
+input[type="submit"] {
+    cursor: pointer;
+    }
 
 #meme-showcase {
     font-family: Anton;
@@ -75,7 +85,3 @@ form {
             position: absolute;
             left: 44%;
             }
-
-input[type="submit"] {
-    cursor: pointer;
-    }

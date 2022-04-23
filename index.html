@@ -16,26 +16,23 @@
     <h1>Meme Generator</h1>
 
     <p style="font-size: 75%">* Required field(s)</p>
-    <table>
-        <tbody>
-            <tr>
-                <td align="right"><label for="imageUrl">Image URL</label> * </td>
-                <td><input type="text" name="imageUrl" id="imageUrl" size="40" placeholder="Enter URL of the image you would like to use"></td>
-            </tr>
-            <tr>
-                <td align="right"><label for="memeHeader">MEME Header</label></td>
-                <td><input type="text" name="memeHeader" id="memeHeader" size="40" placeholder="What words should appear at the top?"></td>
-            </tr>
-            <tr>
-                <td align="right"><label for="memeFooter">MEME Footer</label></td>
-                <td><input type="text" name="memeFooter" id="memeFooter" size="40" placeholder="What words should appear at the bottom?"></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td><input type="submit" value="Generate Meme"></td>
-            </tr>
-        </tbody>
-    </table>
+
+    <div class="row">
+        <div class="left"><label for="imageUrl">Image URL *</label></div>
+        <div class="right"><input type="text" name="imageUrl" required id="imageUrl" size="40" placeholder="Enter URL of the image you would like to use"></div>
+    </div>
+    <div class="row">
+        <div class="left"><label for="memeHeader">MEME Header</label></div>
+        <div class="right"><input type="text" name="memeHeader" id="memeHeader" size="40" placeholder="What words should appear at the top?"></div>
+    </div>
+    <div class="row">
+        <div class="left"><label for="memeFooter">MEME Footer</label></div>
+        <div class="right"><input type="text" name="memeFooter" id="memeFooter" size="40" placeholder="What words should appear at the bottom?"></div>
+    </div>
+    <div class="row">
+        <div class="left">&nbsp;</div>
+        <div class="right"><input type="submit" value="Generate Meme"></div>
+    </div>
 </form>
 
 <div id="meme-showcase"></div>
