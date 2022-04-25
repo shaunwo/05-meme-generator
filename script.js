@@ -2,44 +2,31 @@ const form = document.querySelector('#new-meme-form');
 const memeShowcase = document.querySelector('#meme-showcase');
 
 // create new DOM block on page
-function addDOMBlock(obj,el,HTMLclass,innerText) {
-    obj.document.createElement(el);
-    obj.classList.add(HTMLclass);
-	obj.innerText = innerText;
+const addDOMBlock = (eleType, className, text) => {
+    const element = document.createElement(eleType);
+    if (className) element.className = className;
+	if (text && eleType !== 'img') element.innerText = text;
+	if (text && eleType === 'img') {
+        element.src = text;
+        element.width = 300;
+    }
+    return element;
 }
 
 // addine new meme
 form.addEventListener('submit', function(event) {
     event.preventDefault();
+    
     const imageUrl = document.querySelector('input[name="imageUrl"]');
-    if (imageUrl.value === "") {
-        alert("The Image URL is required");
-        return false;
-    }
     const memeHeaderText = document.querySelector('input[name="memeHeader"]');
     const memeFooterText = document.querySelector('input[name="memeFooter"]');
 
-    const memeContainer = document.createElement('div');
-    memeContainer.classList.add('meme');
-
-    const memeImg = document.createElement('img');
-    memeImg.src = imageUrl.value;
-    memeImg.width = 300;
-
-    //const memeHeaderContainer = addDOMBlock('memeHeaderContainer','h3','meme-header',memeHeaderText.value);
-    const memeHeaderContainer = document.createElement('h3');
-    memeHeaderContainer.classList.add('meme-header');
-	memeHeaderContainer.innerText = memeHeaderText.value;
-    
-    const memeFooterContainer = document.createElement('h3');
-    memeFooterContainer.classList.add('meme-footer');
-	memeFooterContainer.innerText = memeFooterText.value;
-
-    const removeButtonContainer = document.createElement('div');
-    removeButtonContainer.classList.add('remove-button');
-
-    const removeButton = document.createElement('button');
-    removeButton.innerText = 'X';
+    const memeContainer = addDOMBlock('div','meme','');
+    const memeImg = addDOMBlock('img','',imageUrl.value);
+    const memeHeaderContainer = addDOMBlock('h3','meme-header',memeHeaderText.value);
+    const memeFooterContainer = addDOMBlock('h3','meme-footer',memeFooterText.value);
+    const removeButtonContainer = addDOMBlock('div','remove-button','');
+    const removeButton = addDOMBlock('button','','X');
     removeButtonContainer.appendChild(removeButton);
     
 	memeContainer.appendChild(memeHeaderContainer);
@@ -49,7 +36,7 @@ form.addEventListener('submit', function(event) {
     
     memeShowcase.appendChild(memeContainer);
 
-    //  clear form values
+    // clear form values
     form.reset();
 });
 
