@@ -16,6 +16,7 @@ form {
         font-size: 50px;
         font-weight: bold;
         }
+    /* CSS rows, rather than putting in a table */
     form div.row {
         padding: 10px;
         clear: both;
